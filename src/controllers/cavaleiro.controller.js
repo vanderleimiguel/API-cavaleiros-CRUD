@@ -18,7 +18,7 @@ const findByIdCavaleiroController = (req, res) => {
 const createCavaleiroController = (req, res) => {
   const cavaleiro = req.body;
   const newCavaleiro = cavaleiroService.createCavaleiroService(cavaleiro);
-  res.send(newCavaleiro);
+  res.status(201).send(newCavaleiro);
 };
 
 const updateCavaleiroController = (req, res) => {
