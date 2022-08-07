@@ -21,8 +21,9 @@ const createCavaleiroController = (req, res) => {
   res.status(201).send(newCavaleiro);
 };
 
+//update
 const updateCavaleiroController = (req, res) => {
-  const idParam = +req.params.id;
+  const idParam = req.params.id;
   const editCavaleiro = req.body;
   const updatedCavaleiro = cavaleiroService.updateCavaleiroService(
     idParam,

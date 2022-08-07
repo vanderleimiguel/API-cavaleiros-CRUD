@@ -1,5 +1,7 @@
 // require mocks
 const cavaleiros = require('../mocks/cavaleiros');
+const AnimeEntity = require('../entities/cavaleiro.entity');
+const CavaleiroEntity = require('../entities/cavaleiro.entity');
 
 //GetAll
 const findAllCavaleirosService = () => {
@@ -15,21 +17,26 @@ const findByIdCavaleiroService = (parametroId) => {
 };
 
 //Create
-const createCavaleiroService = (newCavaleiro) => {
-  const newId = cavaleiros.length + 1;
-  newCavaleiro.id = newId;
-  cavaleiros.push(newCavaleiro);
-  return newCavaleiro;
+const createCavaleiroService = (cavaleiro) => {
+  const newCavaleiro = new CavaleiroEntity(cavaleiro);
+  newCavaleiro.validObjectBody();
+  const newCavaleiroValidated = { ...newCavaleiro.getCavaleiro() };
+  cavaleiros.push(newCavaleiroValidated);
+  return newCavaleiroValidated;
 };
 
 //Update
 const updateCavaleiroService = (id, cavaleiroEdited) => {
-  cavaleiroEdited['id'] = id;
+  const newCavaleiroEdited = new CavaleiroEntity(cavaleiroEdited);
+  newCavaleiroEdited.validObjectBody();
+  const newCavaleiroEditedValidated = { ...newCavaleiroEdited.getCavaleiro() };
+
+  newCavaleiroEditedValidated['id'] = id;
   const indexCavaleiro = cavaleiros.findIndex(
-    (cavaleiro) => cavaleiro.id == id,
+    (newCavaleiroEditedValidated) => newCavaleiroEditedValidated.id == id,
   );
-  cavaleiros[indexCavaleiro] = cavaleiroEdited;
-  return cavaleiroEdited;
+  cavaleiros[indexCavaleiro] = newCavaleiroEditedValidated;
+  return newCavaleiroEditedValidated;
 };
 
 //Delete
