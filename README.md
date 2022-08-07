@@ -2,7 +2,7 @@
 
 ## 🔖 Sobre
 
-Projeto crud seguindo padrao mrv, com as rotas GetALL, GetById, Put, Post e Delete
+Projeto crud seguindo padrao mvr, com as rotas GetALL, GetById, Put, Post e Delete
 
 CRUD com dados do anime cavaleiros do zodiaco
 

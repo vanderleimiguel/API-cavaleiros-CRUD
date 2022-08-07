@@ -1,16 +1,20 @@
+// require mocks
 const cavaleiros = require('../mocks/cavaleiros');
 
+//GetAll
 const findAllCavaleirosService = () => {
   return cavaleiros;
 };
 
+//GetById
 const findByIdCavaleiroService = (parametroId) => {
-  const cavaleiro = cavaleiros.find(
+  const oneCavaleiro = cavaleiros.find(
     (cavaleiro) => cavaleiro.id === parametroId,
   );
-  return cavaleiro;
+  return oneCavaleiro;
 };
 
+//Create
 const createCavaleiroService = (newCavaleiro) => {
   const newId = cavaleiros.length + 1;
   newCavaleiro.id = newId;
@@ -18,22 +22,25 @@ const createCavaleiroService = (newCavaleiro) => {
   return newCavaleiro;
 };
 
+//Update
 const updateCavaleiroService = (id, cavaleiroEdited) => {
   cavaleiroEdited['id'] = id;
-  const cavaleiroIndex = cavaleiros.findIndex(
+  const indexCavaleiro = cavaleiros.findIndex(
     (cavaleiro) => cavaleiro.id == id,
   );
-  cavaleiros[cavaleiroIndex] = cavaleiroEdited;
+  cavaleiros[indexCavaleiro] = cavaleiroEdited;
   return cavaleiroEdited;
 };
 
+//Delete
 const deleteCavaleiroService = (id) => {
-  const cavaleiroIndex = cavaleiros.findIndex(
+  const indexCavaleiro = cavaleiros.findIndex(
     (cavaleiro) => cavaleiro.id == id,
   );
-  return cavaleiros.splice(cavaleiroIndex, 1);
+  return cavaleiros.splice(indexCavaleiro, 1);
 };
 
+//exports functions
 module.exports = {
   findAllCavaleirosService,
   findByIdCavaleiroService,
