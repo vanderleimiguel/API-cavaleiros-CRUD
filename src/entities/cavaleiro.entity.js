@@ -40,4 +40,5 @@ class CavaleiroEntity {
   }
 }
 
+//exports
 module.exports = CavaleiroEntity;
