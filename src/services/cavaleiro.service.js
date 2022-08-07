@@ -1,7 +1,6 @@
 // require mocks
 const cavaleiros = require('../mocks/cavaleiros');
-const AnimeEntity = require('../entities/cavaleiro.entity');
-const CavaleiroEntity = require('../entities/cavaleiro.entity');
+const cavaleiroEntity = require('../entities/cavaleiro.entity');
 
 //GetAll
 const findAllCavaleirosService = () => {
@@ -18,7 +17,7 @@ const findByIdCavaleiroService = (parametroId) => {
 
 //Create
 const createCavaleiroService = (cavaleiro) => {
-  const newCavaleiro = new CavaleiroEntity(cavaleiro);
+  const newCavaleiro = new cavaleiroEntity(cavaleiro);
   newCavaleiro.validObjectBody();
   const newCavaleiroValidated = { ...newCavaleiro.getCavaleiro() };
   cavaleiros.push(newCavaleiroValidated);
@@ -27,7 +26,7 @@ const createCavaleiroService = (cavaleiro) => {
 
 //Update
 const updateCavaleiroService = (id, cavaleiroEdited) => {
-  const newCavaleiroEdited = new CavaleiroEntity(cavaleiroEdited);
+  const newCavaleiroEdited = new cavaleiroEntity(cavaleiroEdited);
   newCavaleiroEdited.validObjectBody();
   const newCavaleiroEditedValidated = { ...newCavaleiroEdited.getCavaleiro() };
 

@@ -1,6 +1,6 @@
 const crypto = require('node:crypto');
 
-class CavaleiroEntity {
+class cavaleiroEntity {
   constructor(cavaleiro) {
     this.id = cavaleiro.id ?? crypto.randomUUID();
     this.nome = cavaleiro.nome;
@@ -41,4 +41,4 @@ class CavaleiroEntity {
 }
 
 //exports
-module.exports = CavaleiroEntity;
+module.exports = cavaleiroEntity;
