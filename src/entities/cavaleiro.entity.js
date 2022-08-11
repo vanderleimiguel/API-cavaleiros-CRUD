@@ -32,8 +32,8 @@ class cavaleiroEntity {
     return {
       id: this.id,
       nome: this.nome,
+      constelacao: this.constelacao,
       categoria: this.categoria,
-      contelacao: this.constelacao,
       tecnica: this.tecnica,
       idade: this.idade,
     };

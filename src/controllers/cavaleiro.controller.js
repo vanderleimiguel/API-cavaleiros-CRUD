@@ -1,31 +1,34 @@
-// require service
+// requires
 const cavaleiroService = require('../services/cavaleiro.service');
+const mongoose = require('mongoose');
 
 // GetAll
-const findAllCavaleirosController = (req, res) => {
-  const allCavaleiros = cavaleiroService.findAllCavaleirosService();
+const findAllCavaleirosController = async (req, res) => {
+  const allCavaleiros = await cavaleiroService.findAllCavaleirosService();
   res.send(allCavaleiros);
 };
 
 // GetById
-const findByIdCavaleiroController = (req, res) => {
-  const idParam = Number(req.params.id);
-  const chosenCavaleiro = cavaleiroService.findByIdCavaleiroService(idParam);
+const findByIdCavaleiroController = async (req, res) => {
+  const idParam = req.params.id;
+  const chosenCavaleiro = await cavaleiroService.findByIdCavaleiroService(
+    idParam,
+  );
   res.send(chosenCavaleiro);
 };
 
 // Create
-const createCavaleiroController = (req, res) => {
+const createCavaleiroController = async (req, res) => {
   const cavaleiro = req.body;
-  const newCavaleiro = cavaleiroService.createCavaleiroService(cavaleiro);
+  const newCavaleiro = await cavaleiroService.createCavaleiroService(cavaleiro);
   res.status(201).send(newCavaleiro);
 };
 
 //update
-const updateCavaleiroController = (req, res) => {
+const updateCavaleiroController = async (req, res) => {
   const idParam = req.params.id;
   const editCavaleiro = req.body;
-  const updatedCavaleiro = cavaleiroService.updateCavaleiroService(
+  const updatedCavaleiro = await cavaleiroService.updateCavaleiroService(
     idParam,
     editCavaleiro,
   );
@@ -33,9 +36,9 @@ const updateCavaleiroController = (req, res) => {
 };
 
 //delete
-const deleteCavaleiroController = (req, res) => {
+const deleteCavaleiroController = async (req, res) => {
   const idParam = req.params.id;
-  cavaleiroService.deleteCavaleiroService(idParam);
+  await cavaleiroService.deleteCavaleiroService(idParam);
   res.send({ message: 'Cavaleiro deletado com sucesso!' });
 };
 
