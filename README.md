@@ -1,14 +1,10 @@
-# Projeto CRUD
+# API Cavaleiro do Zodiaco
 
-## 🔖 Sobre
-
+API de personagens do anime Cavaleiros do Zodiaco com Banco de dados MongDB
 Projeto crud seguindo padrao mvr, com as rotas GetALL, GetById, Put, Post e Delete
-
-CRUD com dados do anime cavaleiros do zodiaco
-
-Parte 1 utilizando dados mokados
 
 ## ⚙ Tecnologias
 
 - JAVASCRIPT
 - EXPRESS
+- MONGODB

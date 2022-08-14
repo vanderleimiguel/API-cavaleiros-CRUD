@@ -18,12 +18,9 @@ const findByIdCavaleiroService = async (parametroId) => {
 const createCavaleiroService = async (cavaleiro) => {
   const newCavaleiro = new cavaleiroEntity(cavaleiro);
   newCavaleiro.validObjectBody();
-
   const newCavaleiroValidated = { ...newCavaleiro.getCavaleiro() };
-  console.log(newCavaleiroValidated);
-
   const cavaleiroCreated = await Cavaleiros.create(newCavaleiroValidated);
-  console.log(cavaleiroCreated);
+
   return cavaleiroCreated;
 };
 
