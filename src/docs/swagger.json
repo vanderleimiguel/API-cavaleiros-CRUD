@@ -1,0 +1,214 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Cavaleiros API",
+    "description": "API from cavaleiros do zodiaco"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/cavaleiros",
+      "description": "DEV"
+    },
+    {
+      "url": "",
+      "description": "PROD"
+    }
+  ],
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/all-cavaleiros": {
+      "get": {
+        "summary": "This endpoint return all cavaleiros in database",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/cavaleiro"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/one-cavaleiro/{id}": {
+      "get": {
+        "summary": "This endpoint retun a unique cavaleiro finded by id",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id the cavaleiro to be finded",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Not found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/components/schemas/cavaleiro"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/create-cavaleiro": {
+      "post": {
+        "summary": "This endpoint the cavaleiro has been created",
+        "tags": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cavaleiro"
+              },
+              "examples": {
+                "cavaleiro": {
+                  "value": {
+                    "nome": "Hyoga",
+                    "constelacao": "Cisne",
+                    "categoria": "Bronze",
+                    "tecnica": "Pó de diamante",
+                    "idade": 14
+                  }
+                }
+              },
+              "responses": {
+                "400": {
+                  "description": "Bad request"
+                },
+                "201": {
+                  "description": "Cavaleiro Created",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "$ref": "#/components/schemas/cavaleiro"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/update-cavaleiro/{id}": {
+      "put": {
+        "summary": "This endpoint return the cavaleiro updated",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id the Cavaleiros to be deleted",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#components/schemas/cavaleiro"
+              },
+              "examples": {
+                "anime": {
+                  "value": {
+                    "nome": "Saga",
+                    "constelacao": "Gemeos",
+                    "categoria": "Ouro",
+                    "tecnica": "Explosão galatica",
+                    "idade": 28
+                  }
+                }
+              },
+              "responses": {
+                "400": {
+                  "description": "Bad request"
+                },
+                "200": {
+                  "description": "Cavaleiro Updated",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "$ref": "#components/schemas/cavaleiro"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete-cavaleiro/{id}": {
+      "delete": {
+        "summary": "This endpoint return a deleted cavaleiro finded by id",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id the Cavaleiros to be deleted",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Not found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#components/schemas/cavaleiro"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "cavaleiro": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "nome": { "type": "string" },
+          "constelacao": { "type": "string" },
+          "categoria": { "type": "string" },
+          "tecnica": { "type": "string" },
+          "idade": { "type": "number" }
+        }
+      }
+    }
+  }
+}
