@@ -11,7 +11,7 @@
       "description": "DEV"
     },
     {
-      "url": "",
+      "url": "https://cavaleiro-api.herokuapp.com/cavaleiros",
       "description": "PROD"
     }
   ],
