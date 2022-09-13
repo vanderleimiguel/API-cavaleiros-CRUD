@@ -2,7 +2,7 @@
 
 API de personagens do anime Cavaleiros do Zodiaco com Banco de dados MongDB Atlas
 Documentação via swagger com deploy no heroku
-Projeto crud seguindo padrao mvr, com as rotas GetALL, GetById, Put, Post e Delete
+Projeto crud seguindo padrao mvr, com as rotas GetALL, GetById, Put, Post, Delete
 
 ## Deploy
 
